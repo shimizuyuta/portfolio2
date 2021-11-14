@@ -8,8 +8,9 @@ const verifyToken = (req,res,next) =>{
     jwt.verify(token,process.env.JWT_SECRET,function(error,decoded){
       if(error){
         console.log('Verification failed! ', error)
-        return res.status(403).send({
-          auth:true
+        return res.status(403).json({
+          // auth:false,
+          error:'トークンの認証に失敗しました。'
         })
       }
       else{
@@ -19,9 +20,10 @@ const verifyToken = (req,res,next) =>{
       }
     });
   }else{
-    return res.status(401).send({
-      auth:false
-    });
+    return res.status(401).json({
+      // auth:false,
+      error:'トークンがありません。'
+    })
   }
 }
 
