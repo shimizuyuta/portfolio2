@@ -12,17 +12,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-
+//DB
+const initConnection = require('./config/connection')
+initConnection()
+.then((data)=>{
+  console.log('db connect')
+})
 // app.get('/', (req, res) => {
 //   res.send(200);
 // });
 
-app.use(express.static(path.join(__dirname, '/client/build')));
+//開発環境
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'/client/build/index.html'));
-});
+//本番環境
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static( 'client/build' ));    
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); 
+  });
+}
+
 
 
 
