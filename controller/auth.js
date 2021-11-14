@@ -16,7 +16,6 @@ module.exports={
       console.log('user',user)
 　　  //ユーザーが存在しない場合
       if(!user) return res.status(400).json({error:'ユーザーが存在しません。'})
-      const token = generateToken(user);
       //パスワードの照合
       // const isMatch = await bcrypt.compare(password, user.password);
       // if(!isMatch)return res.status(400).json({error:'パスワードに誤りがあります。'})
