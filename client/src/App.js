@@ -7,6 +7,7 @@ import {setAuthToken} from  './utils/setAuthToken'
 import React, {useEffect, Fragment,useLayoutEffect} from 'react'
 import store from "./redux/reducers/index";
 import Navigationbar from './component/Footer/Navbar'
+import Search from './component/Search/Form'
 
 
 const a = () => async dispatch =>{
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/" element={<Home/>} />
             <Route exact path="/login" element={<Login/>}/>
             <Route exact path="/register" element={<Register/>}/>
+            <Route exact path="/search" element={<Search/>}/>
             <Route path="*" element={<NotFound/>} />
           </Routes>    
         </Fragment>
