@@ -14,7 +14,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import { Box } from '@material-ui/core';
-import { logout } from '../redux/actions/auth';
+import { logout } from '../../redux/actions/auth';
 import { connect } from "react-redux";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 

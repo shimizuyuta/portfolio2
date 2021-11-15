@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Box,Grid ,Paper} from '@material-ui/core';
+import {useSelector } from 'react-redux';
+import Home from './Home'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,19 +45,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Landing = () => {
   const classes = useStyles();
+  const isAuth = useSelector(state=>state.auth.isAuth)
     return (
-       <Paper className={classes.paper} >
-          <Typography variant="h4" component="h2" style={{textAlign: 'center',margin:'1%'}}>
-          がっちゃーとは
-          </Typography>
-
-          <Box  style={{textAlign: 'center',margin:'5%'}}>
-             <Typography variant="body2" component="h1">
-               がっちゃーとは学生エンジニア同士がマッチングできるアプリ
+      <Fragment>
+          <Paper className={classes.paper} >
+             <Typography variant="h4" component="h2" style={{textAlign: 'center',margin:'1%'}}>
+             がっちゃーとは
              </Typography>
-
-          </Box>
-         　 </Paper>
+    
+             <Box  style={{textAlign: 'center',margin:'5%'}}>
+                <Typography variant="body2" component="h1">
+                  がっちゃーとは学生エンジニア同士がマッチングできるアプリ
+                </Typography>
+             </Box>
+           </Paper>           
+      </Fragment>
     )
 }
 
