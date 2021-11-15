@@ -7,8 +7,6 @@ import {setAuthToken} from  './utils/setAuthToken'
 import React, {useEffect, Fragment,useLayoutEffect} from 'react'
 import store from "./redux/reducers/index";
 import Navigationbar from './component/Footer/Navbar'
-import Landing from './component/Main/Landing';
-import publicRoute from './route/PublicRoute';
 
 
 const a = () => async dispatch =>{
