@@ -5,12 +5,6 @@ import Cards from '../User/Cards';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: 'blue',
-    padding:'3%',
-    display: "flex",
-    flexWrap: "wrap",
-  },
   paper: {
     paddingBottom:'3%',
     marginBottom:'2%',
@@ -24,10 +18,19 @@ const useStyles = makeStyles((theme) => ({
 
   },
   title:{
-    margin:'2%',
+    margin:'1.3%',
     textAlign:'center',
     color:'#3f51b5',
     fontSize:'2rem',
+    // marginBottom:0,
+    fontFamily:'fantasy',
+    border:'solid 3px #3f51b5',
+    borderRadius:'1em',
+    backgroundColor:'rgb(229 239 253)',
+    maxWidth:'40%',
+    marginLeft:'auto',
+    marginRight:'auto',
+    padding:'.5%'
   }
 }));
 

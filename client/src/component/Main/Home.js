@@ -7,12 +7,6 @@ import Landing from './Landing'
 import Root from './Root'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: 'blue',
-    padding:'3%',
-    display: "flex",
-    flexWrap: "wrap",
-  },
   paper: {
     padding: theme.spacing(2),
     display:'flex',
