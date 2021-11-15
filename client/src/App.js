@@ -1,14 +1,15 @@
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
-import Register from './component/Register'
-import Login from './component/Login';
+import Register from './component/Auth/Register'
+import Login from './component/Auth/Login';
 import NotFound from './component/NotFound'
-import Home from './component/Home';
+import Home from './component/Main/Home';
 import {setAuthToken} from  './utils/setAuthToken'
 import React, {useEffect, Fragment,useLayoutEffect} from 'react'
 import store from "./redux/reducers/index";
-import {useSelector } from 'react-redux';
-import Navigationbar from './component/Navbar'
-import Landing from './component/Landing';
+import Navigationbar from './component/Footer/Navbar'
+import Landing from './component/Main/Landing';
+import publicRoute from './route/PublicRoute';
+
 
 const a = () => async dispatch =>{
   dispatch({
@@ -25,14 +26,13 @@ if (localStorage.token) {
 
 
 function App() {
-  const auth = useSelector(state=>state)
+  
   return (
       <BrowserRouter>
         <Fragment>
           <Navigationbar/>
           <Routes>
-            <Route exact path="/home" element={<Home/>} />
-            <Route exact path="/" element={<Landing/>} />
+            <Route exact path="/" element={<Home/>} />
             <Route exact path="/login" element={<Login/>}/>
             <Route exact path="/register" element={<Register/>}/>
             <Route path="*" element={<NotFound/>} />
