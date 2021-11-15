@@ -39,7 +39,7 @@ export default function DetailModal(props) {
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: 'blue',
+      backgroundColor: '#ffa',
       padding:'3%',
       // justifyContent:'space-between',
       display: "flex",
@@ -248,7 +248,7 @@ fullWidth
 <DialogActions>
 <Button
    variant="contained"
-   color="secondary"
+   color="primary"
    startIcon={<ArrowBackIcon/>}
    onClick={handleClose}
  >
@@ -256,7 +256,7 @@ fullWidth
  </Button>   
 <Button
    variant="contained"
-   color="secondary"
+   color="primary"
    startIcon={<FavoriteIcon/>}
    onClick={handleClose}
  >

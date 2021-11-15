@@ -24,7 +24,6 @@ const Cards = (props) => {
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: 'blue',
       padding:'3%',
       // justifyContent:'space-between',
       display: "flex",
@@ -126,7 +125,7 @@ const Cards = (props) => {
           >
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<ListIcon/>}
               onClick={handleClickOpen}
             >
@@ -134,7 +133,7 @@ const Cards = (props) => {
             </Button>  
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<FavoriteIcon/>}
             >
               いいね！
