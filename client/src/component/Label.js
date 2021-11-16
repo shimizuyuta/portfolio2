@@ -14,7 +14,7 @@ const Label = (props) => {
       backgroundColor:'#3f51b5',
       fontSize:'.8rem',
       display:'inline',
-      padding:'1.5%',
+      padding:'.3rem',
       borderRadius:'.5rem'
     }
   }));
