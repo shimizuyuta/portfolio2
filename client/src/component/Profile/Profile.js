@@ -258,8 +258,10 @@ const Profile = () => {
          {/* <Typography variant="body1" component="h5" xs={5} >基本情報</Typography> */}
          <Typography variant="h5" component="h5" xs={5} className={classes.subtitle}>コメント</Typography>
          <Grid item   direction="row" container  style={{padding:'.3rem'}}>
-           田中ゆうせいと申します。
-           はじめまして。趣味はプログラミングです。親友は後閑君とカー君、菅ちゃんです。特技は逆切れです！！！！！！！！！よろしくです～(*｀艸´)ｳｼｼｼ
+         プログラマーとしてさまざまなソフトウェア開発現場に7年間勤務してきました。現在はCやJava、PHP、Rubyなど数多くの開発言語に対応可能です。特にPHPでのWEBサイト構築に自信があり、
+         昨年は大手クライアントからの依頼により、グルメサイト、求人サイト、不動産検索サイトを制作しました。検索サイト構築では、一流のDBエンジニアと関わることが多くあり、DB設計の善
+         し悪しによってプログラミングの手間が大幅に省けることを発見しました。 今後は、様々な角度からプログラミングを見直し
+         、より高機能でレスポンスのよいプログラミングができるよう技術を磨きたいと考えております。
          </Grid>
        </Box>
        
