@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft:'auto',
     marginRight:'auto',
     justifyContent:'center',
-
   },
   title:{
     margin:'1.3%',
