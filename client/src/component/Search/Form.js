@@ -29,7 +29,7 @@ export default function SearchUser(props) {
   const useStyles = makeStyles((theme) => ({
 
     profile:{
-      maxWidth:'1000px',
+      maxWidth:'700px',
       flexDirection:'column',
       marginTop:'3%',
       marginBottom:'3%',
@@ -39,7 +39,7 @@ export default function SearchUser(props) {
       },
       marginRight:'auto',
       marginLeft:'auto',
-      minWidth:'70%',
+      minWidth:'50%',
       minHeight:'500px',
       padding:'3%',
       borderRadius: "8px",
@@ -64,7 +64,6 @@ export default function SearchUser(props) {
     item:{
       fontWeight:'bold',
       fontSize:'1.1rem'
-
     },
     chip:{
       marginRight:'1rem',
@@ -103,13 +102,11 @@ export default function SearchUser(props) {
         width:'80%',
       },
     },
-    buttonGroup:{
-    }
   }));
   const classes = useStyles();
 
   return (
-<Grid className={classes.root}>
+<Grid>
   <Grid className={classes.title}>検索条件</Grid>
   <Grid className={classes.profile} >
     <Box sx={{m:1,p:1,marginBottom:0,paddingBottom:16}}>
