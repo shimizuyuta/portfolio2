@@ -49,8 +49,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = ({register,isAuth,a}) => {  
   let history = useNavigate();
+  console.log(isAuth,'isAuth')
   if(isAuth){
-    history.push('/')
+    history('/')
   }
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -70,7 +71,7 @@ const Register = ({register,isAuth,a}) => {
     }
 
     return(
-      <Navigate to="/"/>
+      history('/')
     )    
     // if(login){
     //   console.log('Navigate___')
