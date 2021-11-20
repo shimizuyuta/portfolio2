@@ -9,6 +9,7 @@ import store from "./redux/reducers/index";
 import Navigationbar from './component/Footer/Navbar'
 import Search from './component/Search/Form'
 import Profile from './component/Profile/Profile'
+import ProfileEdit from './component/Profile/ProfileEdit';
 
 
 const a = () => async dispatch =>{
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/register" element={<Register/>}/>
             <Route exact path="/search" element={<Search/>}/>
             <Route exact path="/profile" element={<Profile/>}/>
+            <Route exact path="/profile/edit" element={<ProfileEdit/>}/>
             <Route path="*" element={<NotFound/>} />
           </Routes>    
         </Fragment>
