@@ -125,7 +125,7 @@ const Profile = () => {
   const classes = useStyles();
   return (
     <Box >
-     {/* <Grid className={classes.title}>プロフィール</Grid> */}
+     <Grid className={classes.title}>プロフィール</Grid>
      <Grid className={classes.profile}>
        <Avatar alt="Remy Sharp" src="https://images.dog.ceo/breeds/shiba/shiba-8.jpg" className={classes.avatar} />
        <Box className={classes.box} sx={{paddingBottom:16}}>
@@ -236,20 +236,6 @@ const Profile = () => {
             clickable={false}
             onDelete={true}
            />
-           <Chip 
-             label="C++"
-             deleteIcon={<EllipsisText>1</EllipsisText>}
-             style={{margin:"10px",padding:"12px"}}
-            clickable={false}
-            onDelete={true}
-           />
-           <Chip 
-             label="C++"
-             deleteIcon={<EllipsisText>5</EllipsisText>}
-             style={{margin:"10px",padding:"12px"}}
-            clickable={false}
-            onDelete={true}
-           />   
          </li>
        </Paper>
        </Box>
@@ -273,7 +259,7 @@ const Profile = () => {
         >
           <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<EditIcon/>}
               // onClick={handleClose}
               className={classes.button}
