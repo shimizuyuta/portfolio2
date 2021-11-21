@@ -2,28 +2,14 @@ import React from 'react'
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const Faculty = () => {
-  const [state, setState] = React.useState({
-    faculty: '',
-    name: 'hai',
-  });
+const Faculty = (props) => {
 
-  const handleChange = (event) => {
-    console.log('event',event.target)
-    console.log('event value',event.target.value)
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  console.log(state,'state')
-  };
   return (
   <FormControl variant="outlined" fullWidth>
     <Select
       native
-      value={state.faculty}
-      onChange={handleChange}
+      value={props.faculty}
+      onChange={props.handleChange}
       inputProps={{
         name: 'faculty',
         id: 'outlined-faculty-native-simple',

@@ -2,28 +2,14 @@ import React from 'react'
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const Experience = () => {
-  const [state, setState] = React.useState({
-    prefecture: '',
-    name: 'hai',
-  });
+const Experience = (props) => {
 
-  const handleChange = (event) => {
-    console.log('event',event.target)
-    console.log('event value',event.target.value)
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  console.log(state,'state')
-  };
   return (
   <FormControl variant="outlined" fullWidth>
     <Select
       native
-      value={state.experience}
-      onChange={handleChange}
+      value={props.experience}
+      onChange={props.handleChange}
       inputProps={{
         name: 'experience',
         id: 'outlined-experience-native-simple',
