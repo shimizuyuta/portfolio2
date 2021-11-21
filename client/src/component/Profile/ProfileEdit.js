@@ -1,7 +1,7 @@
 
 
 
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -17,9 +17,10 @@ import Experience from '../Select/Experience';
 import Faculty from '../Select/Faculty';
 import Prefecture from '../Select/Prefecture';
 import Year from '../Select/Year';
-import NickName from '../Select/NickName';
+import UserName from '../Select/UserName';
 import LangStart from '../Select/LangStar';
 import { useSelector } from "react-redux";
+import WordInputForm from '../Input/WordInputForm'
 
 
 
@@ -69,14 +70,76 @@ const useStyles = makeStyles((theme) => ({
 
 const ProfileEdit = () => {
   const classes = useStyles();
-  const state = useSelector((state)=>state)
+  const state = useSelector((state)=>state.auth)
   console.log('state',state)
+
+  const [profile,setProfile] = useState({
+    year:0,
+    bunri:0,
+    experience:0,
+    faculty:0,
+    prefecture:0,
+    username:'',
+    word:state.token,
+    skill:[{language:2,level:1},{language:'1',level:'2'},{language:'',level:''}],
+    wantSkills:[],
+  })
+
+  const handleChange = (e) =>{
+    setProfile((prevState)=>{
+      return{
+        ...prevState,
+        [e.target.name]:e.target.value,
+      }
+    })
+  }
+
+
+  const handleArrayChange1 = (e) =>{
+    console.log('catch   e1')
+    const array = {...profile.skill}[0]
+    console.log('arrayaaa',array)
+    const name = e.target.name;
+    const value= e.target.value;
+    (name==='language')?array.language=value:array.level=value
+
+    //両方空じゃなかったらtrue
+    if((array.language!=='')&&(array.level!=='')){
+      setProfile((prevState)=>{
+        console.log(prevState.skill,'dddddd')
+        return{
+          ...prevState,
+          "skill":[...prevState.skill]
+        }
+      })
+    }else{
+      return profile
+    }
+  }
+
+  const handleArrayChange2 = (e) =>{
+    const array = {...profile.skill}[1]
+    const name = e.target.name;
+    const value= e.target.value;
+
+    (name==='language')?array.language=value:array.level=value
+
+    //両方空じゃなかったらtrue
+    if((array.language!=='')&&(array.level!=='')){
+      setProfile((prevState)=>{
+        return{
+          ...prevState,
+          // "skill":[...array]
+        }
+      })
+    }else{
+      return profile
+    }
+  }
+
   useEffect(() => {
-    console.log('effect')
-    // return () => {
-    //   cleanup
-    // }
-  }, [])
+    console.log('search',profile)
+  }, [profile])
 
   return (
     
@@ -92,7 +155,7 @@ const ProfileEdit = () => {
          <Typography variant="h6" component="h5" xs={5}>ニックネーム</Typography>
         </Grid>
         <Grid item xs={6} >
-          <NickName/>
+          <UserName handleChange={handleChange}  username={profile.username}/>
         </Grid>
       </Grid>
       <Grid item   direction="row" container spacing={4} >
@@ -100,7 +163,7 @@ const ProfileEdit = () => {
          <Typography variant="h6" component="h5" xs={5}>地域</Typography>
         </Grid>
         <Grid item xs={6} >
-          <Prefecture/>
+          <Prefecture handleChange={handleChange}  prefecture={profile.prefecture}/>
         </Grid>
       </Grid>
       <Grid item   direction="row" container spacing={4} >
@@ -108,7 +171,7 @@ const ProfileEdit = () => {
          <Typography variant="h6" component="h5" xs={5}>学部</Typography>
         </Grid>
         <Grid item xs={6} >
-          <Faculty/>
+          <Faculty handleChange={handleChange}  faculty={profile.faculty}/>
         </Grid>
       </Grid>
       <Grid item   direction="row" container spacing={4} >
@@ -116,7 +179,15 @@ const ProfileEdit = () => {
          <Typography variant="h6" component="h5" xs={5}>学年</Typography>
         </Grid>
         <Grid item xs={6} >
-          <Year/>
+          <Year handleChange={handleChange}  year={profile.year}/>
+        </Grid>
+      </Grid>
+      <Grid item   direction="row" container spacing={4} >
+        <Grid item xs={6}>
+         <Typography variant="h6" component="h5" xs={5}>文理選択</Typography>
+        </Grid>
+        <Grid item xs={6} >
+          <Bunri handleChange={handleChange}  year={profile.bunri}/>
         </Grid>
       </Grid>
       <Grid item   direction="row" container spacing={4} >
@@ -124,7 +195,7 @@ const ProfileEdit = () => {
          <Typography variant="h6" component="h5" xs={5}>実務経験</Typography>
         </Grid>
         <Grid item xs={6} >
-          <Experience/>
+          <Experience handleChange={handleChange} experience={profile.experience}/>
         </Grid>
       </Grid>
     </Grid>
@@ -135,9 +206,9 @@ const ProfileEdit = () => {
     <Grid item className={classes.box} xs={10} >
       <Typography variant="h6" component="h5" xs={5} style={{paddingBottom:'.6rem'}}>スキル</Typography>     
       <Box className={classes.box}  style={{marginBottom:'0',paddingBottom:'0'}}>  
-        <LangStart/>
-        <LangStart/>
-        <LangStart/>
+        {/* <LangStart handleArrayChange={handleArrayChange1}  skill={profile.skill}/>
+        <LangStart handleArrayChange={handleArrayChange2}  skill={profile.skill}/> */}
+        
       </Box>
     </Grid>
     <Divider />
@@ -147,9 +218,9 @@ const ProfileEdit = () => {
       <Grid item className={classes.box} xs={10}>
       <Typography variant="h6" component="h5" xs={5} style={{paddingBottom:'.6rem'}}>希望スキル・レベル</Typography>
       <Box className={classes.box}  style={{marginBottom:'0',paddingBottom:'0'}}>  
+        {/* <LangStart/>
         <LangStart/>
-        <LangStart/>
-        <LangStart/>
+        <LangStart/> */}
       </Box>
       </Grid>
     </Grid>
@@ -158,14 +229,7 @@ const ProfileEdit = () => {
       <Grid item className={classes.box} xs={10} sx={{m:1,p:1,paddingBottom:16,marginBottom:16}}>
         <Typography variant="h6" component="h5" xs={5} style={{paddingBottom:'.3rem'}}>コメント</Typography>
         <Grid item   direction="row" container  style={{padding:'.3rem'}}>
-        <TextField
-            id="outlined-multiline-static"
-            multiline
-            rows={6}
-            defaultValue="Default Value"
-            variant="outlined"
-            fullWidth
-          />
+          <WordInputForm  handleChange={handleChange}  word={profile.word}/>
         </Grid>
       </Grid>
     </Grid>
