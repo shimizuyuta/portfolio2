@@ -18,7 +18,7 @@ const Label = (props) => {
       borderRadius:'.5rem'
     }
   }));
-  console.log(props,'pros')
+  // console.log(props,'pros')
   const content = props.value
   const classes = useStyles();
   return (
