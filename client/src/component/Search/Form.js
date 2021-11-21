@@ -29,7 +29,8 @@ export default function SearchUser(props) {
   const useStyles = makeStyles((theme) => ({
 
     profile:{
-      maxWidth:'700px',
+      maxWidth:'1000px',
+      minHeight:'500px',
       flexDirection:'column',
       marginTop:'3%',
       marginBottom:'3%',
@@ -104,6 +105,24 @@ export default function SearchUser(props) {
     },
   }));
   const classes = useStyles();
+  const [search,setSearch] = useState({
+    year:0,
+    bunri:0,
+    experience:0,
+    faculty:0,
+    prefecture:0,
+  })
+  const handleChange = (e) =>{
+    setSearch((prevState)=>{
+      return{
+        ...prevState,
+        [e.target.name]:e.target.value,
+      }
+    })
+  }
+  useEffect(() => {
+    console.log('search',search)
+  }, [search])
 
   return (
 <Grid>
@@ -113,43 +132,43 @@ export default function SearchUser(props) {
       <Typography variant="h5" component="h6"  className={classes.subtitle}>基本情報</Typography>
       <Grid container  justifyContent="flex-start">
         <Grid item   direction="row" container className={classes.line} sm={5} xs={12}>
-          <Grid item xs={12}  sm={12} className={classes.subline}>
+          <Grid item xs={12}   className={classes.subline}>
            <Typography variant="h6" component="h5" className={classes.item} >学年<Label value={'任意'}/></Typography>
           </Grid>
-          <Grid item xs={12} sm={12}>
-          <SelectYear />
+          <Grid item xs={12} >
+          <SelectYear handleChange={handleChange}  year={search.year}/>
           </Grid>
         </Grid>
         <Grid item   direction="row" container className={classes.line} sm={5} xs={12}>
-          <Grid item xs={12}  sm={12} className={classes.subline}>
+          <Grid item xs={12}   className={classes.subline}>
            <Typography variant="h6" component="h5" className={classes.item} >学部種別<Label value={'任意'}/></Typography>
           </Grid>
-          <Grid item xs={12} sm={12}>
-            <SelectFaculty/>
+          <Grid item xs={12} >
+            <SelectFaculty handleChange={handleChange}  faculty={search.faculty}/>
           </Grid>
         </Grid>
         <Grid item   direction="row" container className={classes.line} sm={5} xs={12}>
-          <Grid item xs={12}  sm={12} className={classes.subline}>
+          <Grid item xs={12}   className={classes.subline}>
            <Typography variant="h6" component="h5" className={classes.item} >文理選択<Label value={'任意'}/></Typography>
           </Grid>
-          <Grid item xs={12} sm={12}>
-            <SelectBunri/>
+          <Grid item xs={12} >
+            <SelectBunri handleChange={handleChange}  bunri={search.bunri}/>
           </Grid>
         </Grid>
         <Grid item   direction="row" container className={classes.line} sm={5} xs={12}>
-          <Grid item xs={12}  sm={12} className={classes.subline}>
+          <Grid item xs={12}   className={classes.subline}>
            <Typography variant="h6" component="h5" className={classes.item} >実務経験<Label value={'任意'}/></Typography>
           </Grid>
-          <Grid item xs={12} sm={12}>
-            <SelectExperience/>
+          <Grid item xs={12} >
+            <SelectExperience handleChange={handleChange}  experience={search.experience}/>
           </Grid>
         </Grid>
         <Grid item   direction="row" container className={classes.line} sm={5} xs={12}>
-          <Grid item xs={12}  sm={12} className={classes.subline}>
+          <Grid item xs={12}   className={classes.subline}>
            <Typography variant="h6" component="h5" className={classes.item} >地域<Label value={'任意'}/></Typography>
           </Grid>
-          <Grid item xs={12} sm={12}>
-            <SelectPrefecture/>
+          <Grid item xs={12} >
+            <SelectPrefecture handleChange={handleChange}  prefecture={search.prefecture}/>
           </Grid>
         </Grid>
       </Grid>
@@ -157,9 +176,9 @@ export default function SearchUser(props) {
 
     <Box sx={{m:1,p:1,marginTop:0,paddingTop:0}}>
       <Typography variant="body1" component="h5"   className={classes.subtitle}>スキル<Label value={'任意'}/></Typography>
+      {/* <LangStart />
       <LangStart />
-      <LangStart />
-      <LangStart />
+      <LangStart /> */}
     </Box>
 
     <Grid  container direction="row" justifyContent="space-evenly">
