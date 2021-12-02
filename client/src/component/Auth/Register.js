@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import { register } from '../../redux/actions/auth'
-import { Navigate,useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -63,7 +63,7 @@ const Register = ({register,isAuth,a}) => {
   const handleSubmit = (event) =>{
     event.preventDefault();
     if ( password !== password2 ) {
-      // setAlert('Passwords do not match', 'danger')
+      history('/')
     } else {
       console.log(username,email,password)
       register({username, email, password})
@@ -73,12 +73,6 @@ const Register = ({register,isAuth,a}) => {
     return(
       history('/')
     )    
-    // if(login){
-    //   console.log('Navigate___')
-    //   return(
-    //     <Navigate to="/"/>
-    //   )
-    // }
   }
 
   return (
@@ -97,11 +91,11 @@ const Register = ({register,isAuth,a}) => {
           <Grid item xs={12}>
             <TextField
               autoComplete="username"
-              name="userName"
+              name="username"
               variant="outlined"
               required
               fullWidth
-              id="userName"
+              id="username"
               label="ユーザーネーム"
               autoFocus
               value={username}
