@@ -1,24 +1,12 @@
-import React,{useState,Fragment} from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import {Grid} from '@material-ui/core'
+import React,{Fragment} from 'react'
 import { useSelector } from "react-redux";
-import { Route, Navigate } from "react-router-dom";
 import Landing from './Landing'
 import Root from './Root'
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-    display:'flex',
-    justifyContent:'space-evenly',
-    flexWrap:'wrap',
-  },
-}));
 
 
 const Home = (children) => {
   console.log('children',children)
-  const classes = useStyles();
   const isAuth = useSelector(state=>state.auth.isAuth)
   //Rootコンポーネントに描画する子要素があるか判定
   const content = Object.keys(children).length === 0 && children.constructor === Object;
@@ -43,7 +31,6 @@ const Home = (children) => {
 }
 
 export default Home
-
 
 
 

@@ -1,8 +1,9 @@
-import React,{Fragment,useState} from 'react'
+import React,{Fragment,useState,useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
 import Cards from '../User/Cards';
 import Box from '@material-ui/core/Box';
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -37,10 +38,15 @@ const Root = () => {
   const classes = useStyles();
   const [users,setUsers] = useState([])
 
+  useEffect(() => {
+    console.log('root compo')
+    
+  }, [])
+
   return (
     <Fragment>
       <Box>
-        <Grid className={classes.title}>検索結果：807件</Grid>
+        <Grid className={classes.title}>検索結果：27件</Grid>
         <Grid container className={classes.paper} >
           <Cards users={users}/>
           <Cards users={users}/>
