@@ -10,14 +10,11 @@ const Experience = (props) => {
       native
       value={props.experience}
       onChange={props.handleChange}
-      inputProps={{
-        name: 'experience',
-        id: 'outlined-experience-native-simple',
-      }}
+      name="experience"
     >
-      <option aria-label="None" value="" />
-      <option value={1}>実務経験あり</option>
-      <option value={2}>実務経験なし</option>
+      <option value={"指定なし"}>指定なし</option>
+      <option value={"実務経験あり"}>実務経験あり</option>
+      <option value={"実務経験なし"}>実務経験なし</option>
     </Select>
   </FormControl>
   )

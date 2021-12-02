@@ -3,7 +3,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 const Bunri = (props) => {
-
   return (
   <FormControl variant="outlined" fullWidth>
     <Select
@@ -11,14 +10,10 @@ const Bunri = (props) => {
       name="bunri"
       value={props.bunri}
       onChange={props.handleChange}
-      inputProps={{
-        name: 'bunri',
-        id: 'outlined-bunri-native-simple',
-      }}
     >
-      <option aria-label="None" value="" />
-      <option value={1}>文系</option>
-      <option value={2}>理系</option>
+      <option value={"指定なし"}>指定なし</option>
+      <option value={"文系"}>文系</option>
+      <option value={"理系"}>理系</option>
     </Select>
   </FormControl>
   )
